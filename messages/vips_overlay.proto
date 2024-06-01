@@ -1,0 +1,15 @@
+syntax = "proto3";
+package vips_overlay;
+
+// [RINF:DART-SIGNAL]
+message OverlayInputData {
+  bytes input_image = 1;
+  bytes overlay_image = 2;
+  int32 overlay_width = 3;  // Field for the width of the overlay
+  int32 overlay_height = 4; // Field for the height of the overlay
+  int32 overlay_x = 5; // Field for the x-coordinate of the overlay position
+  int32 overlay_y = 6; // Field for the y-coordinate of the overlay position
+}
+
+// [RINF:RUST-SIGNAL]
+message OverlayOutputData { bytes output_image = 1; }

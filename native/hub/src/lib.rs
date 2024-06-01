@@ -1,8 +1,10 @@
 //! This `hub` crate is the
 //! entry point of the Rust logic.
 
+mod lib_vips;
 mod messages;
 
+use lib_vips::overlay_image_with_watermark;
 use tokio;
 // use tokio_with_wasm::tokio; // Uncomment this line to target the web
 
@@ -15,8 +17,10 @@ rinf::write_interface!();
 // use `tokio::task::spawn_blocking`.
 async fn main() {
     use messages::basic::*;
-    // Send signals to Dart like below.
+    //  Send signals to Dart like below.
     SmallNumber { number: 7 }.send_signal_to_dart();
-    // Get receivers that listen to Dart signals like below.
+    //  Get receivers that listen to Dart signals like below.
     let _ = SmallText::get_dart_signal_receiver();
+
+    tokio::spawn(overlay_image_with_watermark());
 }
