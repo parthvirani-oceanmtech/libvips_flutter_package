@@ -1,6 +1,6 @@
 // extern crate vips_rs;
 
-use libvips_rs::{ops, VipsApp, VipsImage};
+use libvips::{ops, VipsApp, VipsImage};
 use rinf::debug_print;
 
 use crate::messages;
